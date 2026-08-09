@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "upstreams": [
+    {
+      "name": "FinanceGlobal",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs",
+      "destination": "rules/category-finance.mrs",
+      "min_bytes": 1024
+    },
+    {
+      "name": "CryptoGlobal",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cryptocurrency.mrs",
+      "destination": "rules/category-cryptocurrency.mrs",
+      "min_bytes": 512
+    }
+  ]
+}
+

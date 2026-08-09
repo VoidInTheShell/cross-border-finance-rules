@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "upstreams": [
+    {
+      "name": "FinanceGlobal",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs",
+      "destination": "rules/category-finance.mrs",
+      "size": 5288,
+      "sha256": "dd33b3907e6b52910ea0a65cc7d03d2152437884a69101de5492b0cd83e18a58",
+      "updated_at": "2026-08-09T05:42:23+00:00"
+    },
+    {
+      "name": "CryptoGlobal",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cryptocurrency.mrs",
+      "destination": "rules/category-cryptocurrency.mrs",
+      "size": 2259,
+      "sha256": "fa2db1df39d533ad1c4e16352d44afa842a3cad7e08e22505d4c963d796ea737",
+      "updated_at": "2026-08-09T05:42:23+00:00"
+    }
+  ]
+}
