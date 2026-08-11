@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FALLBACK = ROOT / "rules" / "cross-border-finance-fallback.yaml"
 LOCK_PATH = ROOT / "sources.lock.json"
+CARD_SOURCE_PATH = ROOT / "sources" / "card-lengziyu-exchanges.json"
 DOMAIN_RE = re.compile(r"^  - '\+\.([a-z0-9](?:[a-z0-9.-]*[a-z0-9])?)'$", re.ASCII)
 REQUIRED = [
     "americanexpress.com",
@@ -29,6 +30,31 @@ REQUIRED = [
     "binance.com",
     "t-mobile.com",
     "o2.co.uk"
+]
+CARD_REQUIRED = [
+    "bingx.com",
+    "pionex.com",
+    "coinw.com",
+    "zoomex.com",
+    "whitebit.com",
+    "bitmart.com",
+    "cex.io",
+    "coinzoom.com",
+    "bitpanda.com",
+    "bit2me.com",
+    "swissborg.com",
+    "coinjar.com",
+    "bitstack-app.com",
+    "fasset.com",
+    "busha.io",
+    "ether.fi",
+    "redotpay.com",
+    "1inch.io",
+    "metamask.io",
+    "oobit.com",
+    "fiat24.com",
+    "gnosispay.com",
+    "token.im",
 ]
 
 
@@ -59,6 +85,39 @@ def validate_fallback() -> list[str]:
     return domains
 
 
+def validate_card_source(domains: list[str]) -> None:
+    if not CARD_SOURCE_PATH.is_file():
+        raise ValueError("missing card.lengziyu.cn source manifest")
+    source = json.loads(CARD_SOURCE_PATH.read_text(encoding="utf-8"))
+    if source.get("source") != "https://card.lengziyu.cn/market":
+        raise ValueError("unexpected card source URL")
+    if source.get("card_count") != 287:
+        raise ValueError("card source count changed; refresh the manifest")
+    platforms = source.get("platforms")
+    if not isinstance(platforms, list) or not platforms:
+        raise ValueError("card source manifest has no platforms")
+    manifest_domains: list[str] = []
+    for number, platform in enumerate(platforms, 1):
+        if not platform.get("card_ids") or not platform.get("official_url", "").startswith("https://"):
+            raise ValueError(f"invalid card platform metadata at index {number}")
+        if platform.get("kind") not in {"exchange", "card-platform"}:
+            raise ValueError(f"invalid card platform kind at index {number}")
+        for domain in platform.get("domains", []):
+            if not re.fullmatch(r"[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?", domain, re.ASCII):
+                raise ValueError(f"invalid card platform domain: {domain}")
+            manifest_domains.append(domain)
+    duplicates = sorted({domain for domain in manifest_domains if manifest_domains.count(domain) > 1})
+    if duplicates:
+        raise ValueError(f"duplicate card source domains: {duplicates}")
+    missing = sorted(set(manifest_domains) - set(domains))
+    if missing:
+        raise ValueError(f"card source domains missing from fallback: {missing}")
+    missing_required = sorted(set(CARD_REQUIRED) - set(domains))
+    if missing_required:
+        raise ValueError(f"required card fallback domains are missing: {missing_required}")
+    print(f"card source: {len(platforms)} platforms, {len(manifest_domains)} unique domains")
+
+
 def validate_upstreams() -> None:
     lock = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
     entries = lock.get("upstreams", [])
@@ -81,7 +140,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--require-upstreams", action="store_true")
     args = parser.parse_args()
-    validate_fallback()
+    domains = validate_fallback()
+    validate_card_source(domains)
     if args.require_upstreams:
         validate_upstreams()
 
