@@ -8,7 +8,7 @@
 |---|---|---|
 | `rules/category-finance.mrs` | Mihomo MRS / domain | 每日从 MetaCubeX `category-finance.mrs` 自动同步 |
 | `rules/category-cryptocurrency.mrs` | Mihomo MRS / domain | 每日从 MetaCubeX `category-cryptocurrency.mrs` 自动同步 |
-| `rules/cross-border-finance-fallback.yaml` | Mihomo YAML / domain | 人工审计的缺口补充与硬编码保底，当前 474 个域名后缀 |
+| `rules/cross-border-finance-fallback.yaml` | Mihomo YAML / domain | 人工审计的缺口补充与硬编码保底，当前 476 个域名后缀 |
 | `sources.lock.json` | JSON | 上游 URL、产物大小、SHA-256 与最后变更时间 |
 | `sources/card-lengziyu-exchanges.json` | JSON | `card.lengziyu.cn` 卡片列表、筛选策略、卡片 ID 与官方根域核验清单 |
 
@@ -18,7 +18,7 @@
 
 `sources/card-lengziyu-exchanges.json` 记录了 2026-08-11 从公开市场列表读取的 287 个卡片 ID（详情接口当次有 60 个成功响应、227 个未发布/错误响应）。其中明确带“交易所”标签的详情包括 Bitget、Bybit、Coinbase、Crypto.com 与 OKX；其它条目只有在卡片 ID 与官方站点可以交叉核验时才纳入，并区分 `exchange` 与 `card-platform`。卡片站自身占位地址、第三方评测站、广告地址和普通银行/银行卡条目被排除。
 
-本次保底补充了 BingX、Pionex、CoinW、Zoomex、WhiteBIT、BitMart、CEX.IO、CoinZoom、Bitpanda、Bit2Me、SwissBorg、Nexo、CoinJar、Paybis、Busha、Fasset、Wirex 等交易/买卖或卡片平台，以及 ether.fi、RedotPay、KAST、Infini、MetaMask 生态、Gnosis Pay、Oobit、Coin98、钱包/链上支付等直接关联入口。它们仍通过 `FinanceFallback` 统一进入“跨境金融”，不会把大域名表重新硬编码到九份模板。
+本次保底补充了 BingX、Pionex、CoinW、Zoomex、WhiteBIT、BitMart、CEX.IO、CoinZoom、Bitpanda、Bit2Me、SwissBorg、Nexo、CoinJar、Paybis、Busha、Fasset、Wirex 等交易/买卖或卡片平台，以及 ether.fi、RedotPay、KAST、Infini、MetaMask 生态、Gnosis Pay、Oobit、Coin98、Plasma One、钱包/链上支付等直接关联入口。Plasma One 按卡片/稳定币账户平台归类，`plasma.org` 与 `plasma.to`（覆盖 `app.plasma.to`）进入 fallback；卡片站占位地址和无关的 `plasma.io` 不加入。它们仍通过 `FinanceFallback` 统一进入“跨境金融”，不会把大域名表重新硬编码到九份模板。
 
 域名筛选是路由用途，不是服务安全或可用性推荐；地区、KYC、卡片发行与产品条款仍以各官方站点当前状态为准。
 

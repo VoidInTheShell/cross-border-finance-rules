@@ -298,6 +298,9 @@ payload:
   - '+.token.im'
   - '+.osmosis.zone'
   - '+.dtcpay.com'
+  # Plasma One stablecoin account/card; app.plasma.to is covered by plasma.to.
+  - '+.plasma.org'
+  - '+.plasma.to'
 
   # 全球电信运营商与 ISP
   - '+.t-mobile.com'

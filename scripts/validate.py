@@ -55,6 +55,8 @@ CARD_REQUIRED = [
     "fiat24.com",
     "gnosispay.com",
     "token.im",
+    "plasma.org",
+    "plasma.to",
 ]
 
 

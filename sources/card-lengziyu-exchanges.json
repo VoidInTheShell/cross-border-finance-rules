@@ -82,11 +82,12 @@
     {"card_ids": ["nebeus"], "name": "Nebeus", "kind": "card-platform", "official_url": "https://nebeus.com/", "domains": ["nebeus.com"], "evidence": "card ID; crypto finance/card candidate"},
     {"card_ids": ["imtoken"], "name": "imToken", "kind": "card-platform", "official_url": "https://token.im/", "domains": ["token.im"], "evidence": "card ID; wallet/card ecosystem"},
     {"card_ids": ["osmosis-pay"], "name": "Osmosis", "kind": "card-platform", "official_url": "https://osmosis.zone/", "domains": ["osmosis.zone"], "evidence": "card ID; DeFi/card ecosystem"},
-    {"card_ids": ["dtcpay"], "name": "dtcpay", "kind": "card-platform", "official_url": "https://dtcpay.com/", "domains": ["dtcpay.com"], "evidence": "card ID; official stablecoin/fiat card platform"}
+    {"card_ids": ["dtcpay"], "name": "dtcpay", "kind": "card-platform", "official_url": "https://dtcpay.com/", "domains": ["dtcpay.com"], "evidence": "card ID; official stablecoin/fiat card platform"},
+    {"card_ids": ["plasma-one"], "name": "Plasma One", "kind": "card-platform", "official_url": "https://www.plasma.org/personal", "domains": ["plasma.org", "plasma.to"], "evidence": "card ID; official Plasma One page and terms identify the app interface at app.plasma.to"}
   ],
   "excluded_examples": [
     {"reason": "card-site placeholder or third-party source", "examples": ["card.lengziyu.cn", "www.todey.xyz", "stablecard.pages.dev", "91vrvd.github.io"]},
     {"reason": "ordinary bank/card entries are already covered by finance rules and are not exchange additions", "examples": ["Chase", "American Express", "N26", "HSBC", "Bank of America"]},
-    {"reason": "domain collision or non-official candidate", "examples": ["bitstack.com", "fasset.io", "busha.co", "utorg.pro"]}
+    {"reason": "domain collision or non-official candidate", "examples": ["bitstack.com", "fasset.io", "busha.co", "utorg.pro", "plasma.io"]}
   ]
 }
