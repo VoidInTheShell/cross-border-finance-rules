@@ -13,9 +13,9 @@
       "name": "CryptoGlobal",
       "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cryptocurrency.mrs",
       "destination": "rules/category-cryptocurrency.mrs",
-      "size": 2259,
-      "sha256": "fa2db1df39d533ad1c4e16352d44afa842a3cad7e08e22505d4c963d796ea737",
-      "updated_at": "2026-08-09T05:42:23+00:00"
+      "size": 2287,
+      "sha256": "c09d8cb3f2c6248c0adadd311ce8e9a495b34a26a93ceaa88a1905c0a654c033",
+      "updated_at": "2026-09-01T08:43:11+00:00"
     }
   ]
 }
