@@ -5,9 +5,9 @@
       "name": "FinanceGlobal",
       "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs",
       "destination": "rules/category-finance.mrs",
-      "size": 5318,
-      "sha256": "2516862e35bdcc8afa2bfd3ad2a66723969e7e225628d29b9731163261f73284",
-      "updated_at": "2026-10-10T09:55:36+00:00"
+      "size": 5359,
+      "sha256": "da4570a53db643247db5582ac1d7ea8848fb8b0c34b8a688fb1102b7d2fcc842",
+      "updated_at": "2026-10-18T08:06:34+00:00"
     },
     {
       "name": "CryptoGlobal",
